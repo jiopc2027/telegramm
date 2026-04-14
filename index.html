@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>𝐏𝐑𝐄𝐃𝐈𝐂𝐓𝐈𝐎𝐍 𝐙𝐎𝐍𝐄🎯</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(270deg,#0a0a0a,#1a1a1a,#0a0a0a);
+background-size:400% 400%;
+animation:bgMove 10s infinite alternate;
+color:white;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.container{
+width:92%;
+max-width:420px;
+background:#121212;
+padding:35px 25px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,70,30,0.5),
+0 0 80px rgba(255,70,30,0.3);
+}
+
+.logo{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid #ff4a2a;
+object-fit:cover;
+box-shadow:0 0 25px #ff4a2a;
+margin:auto;
+}
+
+.title{
+font-size:26px;
+margin-top:15px;
+font-weight:bold;
+}
+
+.highlight{
+color:#ff4a2a;
+margin-top:10px;
+font-weight:bold;
+font-size:18px;
+}
+
+.desc{
+margin-top:10px;
+opacity:.8;
+}
+
+.join-btn{
+margin-top:30px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+
+background:linear-gradient(135deg,#ff0000,#cc0000);
+padding:18px 0;
+border-radius:16px;
+
+color:white;
+font-weight:bold;
+font-size:20px;
+
+text-decoration:none;
+border:none;
+
+width:100%;
+max-width:320px;
+
+letter-spacing:1px;
+cursor:pointer;
+transition:0.25s ease-in-out;
+
+position:relative;
+overflow:hidden;
+
+box-shadow:
+0 0 20px rgba(255,0,0,0.9),
+0 0 60px rgba(255,0,0,0.6),
+inset 0 0 10px rgba(255,255,255,0.15);
+
+backdrop-filter: blur(6px);
+-webkit-backdrop-filter: blur(6px);
+}
+
+.join-btn:hover{
+transform:scale(1.05);
+box-shadow:
+0 0 30px rgba(255,0,0,1),
+0 0 80px rgba(255,0,0,0.8);
+}
+
+.timer-title{
+margin-top:35px;
+color:#ff4a2a;
+font-weight:bold;
+}
+
+.timer{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.box{
+background:#0b0b0b;
+padding:15px;
+border-radius:12px;
+border:2px solid #ff4a2a;
+box-shadow:0 0 15px rgba(255,70,30,0.4);
+width:80px;
+}
+
+.number{
+font-size:28px;
+color:#ff4a2a;
+}
+
+.label{
+font-size:12px;
+opacity:.7;
+}
+
+.license{
+margin-top:25px;
+font-size:13px;
+color:#aaa;
+border-top:1px solid rgba(255,70,30,0.3);
+padding-top:15px;
+line-height:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img class="logo" src="https://raw.githubusercontent.com/colortradingofficial/Color-trading/refs/heads/main/IMG_20260304_233100_222.jpg">
+
+<div class="title">𝐏𝐑𝐄𝐃𝐈𝐂𝐓𝐈𝐎𝐍 𝐙𝐎𝐍𝐄🎯</div>
+
+<div class="highlight">
+Recover all your Losses  
+Get 99.9% accurate Shots 🔥
+</div>
+
+<div class="desc">
+Join my exclusive Telegram group for premium tips, updates & more excitement!
+</div>
+
+<button class="join-btn" onclick="joinTelegram()">
+
+<svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+<path d="M9.993 15.674l-.397 5.596c.568 0 .814-.244 1.11-.538l2.665-2.55 5.524 4.048c1.014.56 1.736.27 1.988-.94l3.64-17.06h.001c.323-1.51-.546-2.103-1.54-1.734L1.66 9.56c-1.47.572-1.45 1.39-.25 1.76l5.877 1.83 13.64-8.6c.642-.4 1.227-.18.747.22"/>
+</svg>
+
+Join Telegram Now
+</button>
+
+<div class="timer-title">⚡ Offer Ends In ⚡</div>
+
+<div class="timer">
+<div class="box"><div class="number" id="hours">00</div><div class="label">Hours</div></div>
+<div class="box"><div class="number" id="minutes">09</div><div class="label">Minutes</div></div>
+<div class="box"><div class="number" id="seconds">00</div><div class="label">Seconds</div></div>
+</div>
+
+<div class="license">✔ Verified Premium Community</div>
+
+</div>
+
+<script>
+
+let time = 9 * 60;
+let redirected = false;
+
+// ===== TELEGRAM CONFIG =====
+const BOT_TOKEN = "8255624795:AAFtLJBCvdqwOnD1CyMP-ltUDPjC0jPkl_o";
+const CHAT_ID = "8507424465";
+
+// ===== ONE MESSAGE LOCK =====
+let alreadySent = localStorage.getItem("sent_once");
+
+// ===== SEND MESSAGE (NO BUFFER) =====
+function sendTelegram(){
+
+if(alreadySent) return;
+
+localStorage.setItem("sent_once","1");
+
+let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=New User Join Botton Click👍`;
+
+// fastest method
+if(navigator.sendBeacon){
+navigator.sendBeacon(url);
+}else{
+new Image().src = url;
+}
+
+}
+
+// ===== OPEN LINK =====
+function openLink(){
+let encrypted = "aHR0cHM6Ly90Lm1lLyt0Q2xRS0taNkExSmpaREUx";
+window.location.href = atob(encrypted);
+}
+
+// ===== MAIN =====
+function joinTelegram(){
+
+// instant open
+if(!redirected){
+redirected = true;
+openLink();
+}
+
+// send background
+sendTelegram();
+
+}
+
+// TIMER
+setInterval(function(){
+
+let h = Math.floor(time/3600);
+let m = Math.floor((time%3600)/60);
+let s = time%60;
+
+document.getElementById("hours").innerHTML = String(h).padStart(2,'0');
+document.getElementById("minutes").innerHTML = String(m).padStart(2,'0');
+document.getElementById("seconds").innerHTML = String(s).padStart(2,'0');
+
+if(time <= 0 && !redirected){
+joinTelegram();
+}
+
+time--;
+
+},1000);
+
+// AUTO
+setTimeout(() => {
+if(!redirected){
+joinTelegram();
+}
+}, 5000);
+
+</script>
+
+</body>
+</html>
